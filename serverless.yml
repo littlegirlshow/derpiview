@@ -1,0 +1,12 @@
+service: derpiview
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  getFile:
+    handler: handler.hello
+    events:
+      - http:
+          path: /post/{postId}/representations/{size}
+          method: GET
