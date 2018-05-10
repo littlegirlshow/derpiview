@@ -32,7 +32,7 @@ module.exports.hello = async (request) => {
   return {
     statusCode: 302,
     headers: {
-      Location: `https:${fileLocation}`
+      Location: `https:${fileLocation.replace(/\.webm$/, '.gif')}`
     }
   }
 }
