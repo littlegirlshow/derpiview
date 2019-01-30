@@ -1,2 +1,2 @@
 # derpiview
-Service to fetch thumbnail and other info about any Derpibooru post via GET to a url.
+Service to fetch embeddable thumbnail for a Derpibooru post via GET to a url.
