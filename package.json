@@ -1,0 +1,25 @@
+{
+  "name": "derpiview",
+  "version": "1.0.0",
+  "description": "Embeds derpibooru thumbnails",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlegirlshow/derpiview.git"
+  },
+  "keywords": [
+    "derpibooru"
+  ],
+  "author": "plfx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/littlegirlshow/derpiview/issues"
+  },
+  "homepage": "https://github.com/littlegirlshow/derpiview#readme",
+  "devDependencies": {
+    "@serverless/enterprise-plugin": "^0.2.0"
+  }
+}
