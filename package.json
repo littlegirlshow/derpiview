@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/littlegirlshow/derpiview#readme",
   "devDependencies": {
-    "@serverless/enterprise-plugin": "^0.2.0"
+    "@serverless/enterprise-plugin": "^0.2.0",
+    "serverless-domain-manager": "^2.6.13"
   }
 }

@@ -1,5 +1,6 @@
 service: derpiview
 provider:
+  stage: lgs
   credentials: ${secrets:lgs-aws}
   name: aws
   runtime: nodejs8.10
@@ -8,7 +9,17 @@ tenant: jeremy
 app: lgs
 
 plugins:
+  - serverless-domain-manager
   - '@serverless/enterprise-plugin'
+
+custom:
+  customDomain:
+    domainName: api.littlegirl.show
+    stage: lgs
+    basePath: derpiview
+    certificateName: '*.littlegirl.show'
+    createRoute53Record: true
+    endpointType: regional
 
 functions:
   getFile:
