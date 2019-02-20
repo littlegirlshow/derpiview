@@ -22,8 +22,8 @@ custom:
     endpointType: regional
 
 functions:
-  getFile:
-    handler: handler.hello
+  getPost:
+    handler: handler.getPost
     events:
       - http:
           path: /post/{postId}/representations/{size}
