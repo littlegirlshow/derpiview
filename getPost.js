@@ -1,4 +1,16 @@
 const fetch = require('node-fetch')
+const dynamoose = require('dynamoose')
+
+const Item = dynamoose.model(process.env.TABLE_NAME, {
+  priPart: String,
+  priSort: String
+}, {
+  create: false,
+  update: false,
+  expires: {
+    ttl: 21*24*60*60 // 3 weeks
+  }
+})
 
 module.exports.getPost = async (request) => {
   const postId = request.pathParameters.postId
@@ -19,6 +31,11 @@ module.exports.getPost = async (request) => {
       body: `Invalid representation size.`
     }
   }
+  
+  await (new Item({
+      priPart: `derpiLink|${postId}`,
+      priSort: '/derpiLink'
+  })).save()
 
   return {
     statusCode: 302,

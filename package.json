@@ -24,6 +24,7 @@
     "serverless-domain-manager": "^2.6.13"
   },
   "dependencies": {
+    "dynamoose": "^1.6.4",
     "node-fetch": "^2.3.0"
   }
 }
