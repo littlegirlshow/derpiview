@@ -8,13 +8,9 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb:Query
-        - dynamodb:Scan
         - dynamodb:GetItem
         - dynamodb:PutItem
         - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-        - dynamodb:BatchGetItem
         - dynamodb:DescribeTable
         - dynamodb:DescribeStream
         - dynamodb:GetRecords
@@ -39,13 +35,21 @@ custom:
   safeguards: false
 
 functions:
-  getPost:
-    handler: getPost.getPost
+  getPostDerpi:
+    handler: getPost.getPostDerpi
     environment:
       TABLE_NAME: items-${self:provider.stage}
     events:
       - http:
-          path: '/post/{postId}/representations/{size}'
+          path: '/derpi/post/{postId}/representations/{size}'
+          method: GET
+  getPostBooru:
+    handler: getPost.getPostBooru
+    environment:
+      TABLE_NAME: items-${self:provider.stage}
+    events:
+      - http:
+          path: '/booru/{booruDomain}/post/{postId}/sample'
           method: GET
   notify:
     handler: notify.notify
@@ -125,4 +129,4 @@ resources:
           Enabled: true
           AttributeName: ttl
         StreamSpecification:
-          StreamViewType: KEYS_ONLY
+          StreamViewType: NEW_IMAGE
