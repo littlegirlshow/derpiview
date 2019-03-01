@@ -122,9 +122,7 @@ resources:
             KeyType: HASH
           - AttributeName: priSort
             KeyType: RANGE
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+        BillingMode: PAY_PER_REQUEST
         TimeToLiveSpecification:
           Enabled: true
           AttributeName: ttl
