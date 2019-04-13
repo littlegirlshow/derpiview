@@ -99,7 +99,11 @@ module.exports.getPostBooru = async (request) => {
     }
   }
 
-  const booruApiResponse = await fetch(`https://${booruDomain}/post/show.json?id=${postId}`).then((res) => res.json())
+  const booruApiResponse = await fetch(`https://${booruDomain}/post/show.json?id=${postId}`, {
+    headers: {
+      'User-Agent': 'lgs-derpiview/1.0'
+    }
+  }).then((res) => res.json())
 
   const embedUrl = booruApiResponse.sample_url
   const pageUrl = `https://${booruDomain}/post/show/${postId}`
